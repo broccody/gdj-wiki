@@ -7,7 +7,10 @@
     <h1>Greeting!!!</h1>
     <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
     <script type="text/javascript">
-        liff.init();
+        $(window).on('load', function(){
+            // Initializes a LIFF app
+            liff.init(function (data) {});
+        });
     </script>
 </body>
 </html>
