@@ -5,11 +5,21 @@
 </head>
 <body>
     <h1>Greeting!!!</h1>
+    <h2 id="user-name"></h2>
     <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
     <script type="text/javascript">
         $(window).on('load', function(){
             // Initializes a LIFF app
-            liff.init(function (data) {});
+            liff.init(function (data) {
+                liff.getProfile()
+                    .then(profile => {
+                        const name = profile.displayName
+                        document.getElementById('user-name').innerHTML = name;
+                    })
+                    .catch((err) => {
+                        console.log('error', err);
+                    });
+            });
         });
     </script>
 </body>
